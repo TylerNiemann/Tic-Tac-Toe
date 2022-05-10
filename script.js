@@ -1,11 +1,14 @@
 const gameBoard = (() => {
     const board = Array.from({length: 9});
     const updateGrid = (num,sign) => {
-        board.splice(num,1,sign);
-        console.log(board);
-        for(let i = 0; i < board.length; i ++){
-            document.getElementById(`${i}`).textContent = board[i];
+        if (board[num] !== 'x' && board[num] !== 'o') {
+            board.splice(num,1,sign);
+            console.log(board);
+            for(let i = 0; i < board.length; i ++){
+                document.getElementById(`${i}`).textContent = board[i];
+            }
         }
+        else return;
     }
     return {
         updateGrid
